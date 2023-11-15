@@ -30,5 +30,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file GOFO\ Implementation/pom.xml
     - name: Run Tests
-      run: mvn test
+      run: mvn test --file GOFO\ Implementation/pom.xml
+
 
