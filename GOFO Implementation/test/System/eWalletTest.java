@@ -18,6 +18,7 @@ public class eWalletTest {
     public void setUp() {
         wallet = new eWallet();
         mockScanner = mock(Scanner.class);
+        wallet.input = mockScanner;
     }
     
     @Test
