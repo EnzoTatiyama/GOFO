@@ -1,10 +1,9 @@
 package System;
 
 import java.util.Scanner;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 /**
  *
@@ -15,7 +14,7 @@ public class PlaygroundTest {
     private Playground playground;
     private Scanner mockScanner;
     
-    @BeforeAll
+    @BeforeEach
     public void setUp() {
         playground = new Playground();
         mockScanner = mock(Scanner.class);
@@ -23,7 +22,7 @@ public class PlaygroundTest {
     }
 
     @Test
-    public void getInstanceTest() {
+    public void testGetInstance() {
         assertEquals(Playground.class, playground.getClass());
     }
 
