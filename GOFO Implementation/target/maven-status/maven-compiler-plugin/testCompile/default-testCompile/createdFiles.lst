@@ -1,4 +1,4 @@
-System\PlayerTest.class
-System\eWalletTest.class
-System\PlayGroundScheduleTest.class
-System\AdministratorTest.class
+System/PlayerTest.class
+System/eWalletTest.class
+System/PlayGroundScheduleTest.class
+AdministratorTest.class
