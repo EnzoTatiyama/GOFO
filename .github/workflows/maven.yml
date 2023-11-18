@@ -27,11 +27,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-
     - name: Build with Maven
-      run: mvn -B package --file 'GOFO Implementation/pom.xml'
-      working-directory: 'GOFO Implementation'
-
-    - name: Run Tests with Maven
-      run: mvn test --file 'GOFO Implementation/pom.xml'
-      working-directory: 'GOFO Implementation'
+      run: mvn -B package --file GOFO\ Implementation/pom.xml
+      working-directory: GOFO\ Implementation
+    - name: Run Tests
+      run: mvn test --file GOFO\ Implementation/pom.xml
+      working-directory: GOFO\ Implementation
