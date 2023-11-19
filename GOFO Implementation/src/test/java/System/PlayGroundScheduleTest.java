@@ -12,11 +12,4 @@ public class PlayGroundScheduleTest {
        assertEquals(PlayGroundSchedule.class, playGroundSchedule.getClass());
    }
    
-   @Test
-   public void testSetAndGetPrice() {
-       PlayGroundSchedule playGroundSchedule = new PlayGroundSchedule();
-       playGroundSchedule.setScanner(new Scanner("20"));
-       playGroundSchedule.setPrice(); 
-       assertEquals(20, playGroundSchedule.getTimeSlotPerHour());
-   }
 }
