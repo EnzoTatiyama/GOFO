@@ -21,7 +21,7 @@ public class PlayGroundScheduleTest {
        playGroundSchedule.setPrice();
 
        System.setIn(System.in);
-       assertEquals(PlayGroundSchedule.class, playGroundSchedule.getClass());
+       assertEquals(20, playGroundSchedule.getTimeSlotPerHour());
    }
    
 }
