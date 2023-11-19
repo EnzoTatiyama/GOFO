@@ -1,14 +1,10 @@
 package System;
 
-import java.io.InputStream;
 import java.io.ByteArrayInputStream;
-import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayGroundScheduleTest {
-
-   private final InputStream originalSystemIn = System.in;
 
    @Test
    public void testGetInstance() {
@@ -18,7 +14,7 @@ public class PlayGroundScheduleTest {
 
    @Test
    public void testSetPrice() {
-       String input = '20';
+       String input = "20";
        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
        PlayGroundSchedule playGroundSchedule = new PlayGroundSchedule();
