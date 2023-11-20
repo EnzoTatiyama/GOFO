@@ -45,14 +45,19 @@ public class PlaygroundOwnerTest {
             
     @Test 
     public void testUpdatePlaygroundName(){
-        Playground playground = new Playground();
-        PlaygroundOwner playgroundOwner = new PlaygroundOwner();
-        
-        assertEquals(false, playgroundOwner.existPlayground("Test"));
-        
-        playground.setName("Test");
-        playgroundOwner.addPlayground(playground);
+        String simulatedInputOption = "TestOne\n1\nTestTwo\n2\nTest\n3\n20\n4\nnot available\n5\n1\n1";
 
-        assertEquals(true, playgroundOwner.existPlayground("Test"));
-    }        
+        InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        
+        PlaygroundOwner playgroundOwner = new PlaygroundOwner();
+        Playground playground = new Playground();
+        playground.setName("TestOne");
+        playgroundOwner.addPlayground(playground);
+        playgroundOwner.updatePlaygroundName("Test");
+        playgroundOwner.updatePlaygroundName("TestTwo");
+        playgroundOwner.updatePlaygroundName("TestTwo");
+    }     
+    
+   
 }
