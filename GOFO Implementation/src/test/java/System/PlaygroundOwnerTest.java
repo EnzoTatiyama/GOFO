@@ -48,7 +48,7 @@ public class PlaygroundOwnerTest {
         Playground playground = new Playground();
         playground.setName("PlayGround");
      
-        String simulatedInputOption = "1\nPlayground";
+        String simulatedInputOption = "1\nPlayGroundEdited";
         InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
         
