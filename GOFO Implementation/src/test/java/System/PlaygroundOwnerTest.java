@@ -45,7 +45,7 @@ public class PlaygroundOwnerTest {
             
     @Test 
     public void testUpdatePlaygroundName(){
-        String simulatedInputOption = "1\nPlayGroundEdited";
+        String simulatedInputOption = "1\r\nPlayGroundEdited";
 
         InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
@@ -57,25 +57,25 @@ public class PlaygroundOwnerTest {
         playgroundOwner.updatePlaygroundName("PlayGround");
         assertEquals("PlayGroundEdited", playground.getName());
 
-        simulatedInputOption = "2\nLocation1";
+        simulatedInputOption = "2\r\nLocation1";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
         playgroundOwner.updatePlaygroundName(playground.getName());
         assertEquals("Location1", playground.getLocation());
 
-        simulatedInputOption = "3\n20";
+        simulatedInputOption = "3\r\n20";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
         playgroundOwner.updatePlaygroundName(playground.getName());
         assertEquals(20, playground.getPrice());
 
-        simulatedInputOption = "4\navailable";
+        simulatedInputOption = "4\r\navailable";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
         playgroundOwner.updatePlaygroundName(playground.getName());
         assertEquals("available", playground.getStatus());
 
-        simulatedInputOption = "5\n1\n7";
+        simulatedInputOption = "5\r\n1\r\n7";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
         playgroundOwner.updatePlaygroundName(playground.getName());
