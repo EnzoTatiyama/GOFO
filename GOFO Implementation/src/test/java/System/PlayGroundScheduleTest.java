@@ -18,7 +18,7 @@ public class PlayGroundScheduleTest {
 
    @Test
    public void testSetPrice() {
-       String input = '20';
+       String input = "20";
        System.setIn(new ByteArrayInputStream(input.getBytes()));
 
        PlayGroundSchedule playGroundSchedule = new PlayGroundSchedule();
