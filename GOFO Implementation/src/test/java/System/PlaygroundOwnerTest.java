@@ -55,26 +55,30 @@ public class PlaygroundOwnerTest {
         playground.setName("PlayGround");
         playgroundOwner.addPlayground(playground);
         playgroundOwner.updatePlaygroundName("PlayGround");
+        assertEquals("PlayGroundEdited", playground.getName());
 
         simulatedInputOption = "2\nLocation1";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
-        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
+        playgroundOwner.updatePlaygroundName(playground.getName());
+        assertEquals("Location1", playground.getLocation());
 
         simulatedInputOption = "3\n20";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
-        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
+        playgroundOwner.updatePlaygroundName(playground.getName());
+        assertEquals(20, playground.getPrice());
 
         simulatedInputOption = "4\navailable";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
-        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
+        playgroundOwner.updatePlaygroundName(playground.getName());
+        assertEquals("available", playground.getStatus());
 
         simulatedInputOption = "5\n1\n7";
         in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
-        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
+        playgroundOwner.updatePlaygroundName(playground.getName());
     }     
     
    
