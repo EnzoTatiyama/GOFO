@@ -43,43 +43,21 @@ public class PlaygroundOwnerTest {
         assertEquals(true, playgroundOwner.existPlayground("Test"));
     }
             
-    // @Test 
-    // public void testUpdatePlaygroundName(){
-    //     String simulatedInputOption = "1\r\nPlayGroundEdited";
-
-    //     InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
-    //     System.setIn(in);
+    @Test 
+    public void testUpdatePlaygroundName(){
+        Playground playground = new Playground();
+        playground.setName("PlayGround");
+     
+        String simulatedInputOption = "1\nPlayGroundEdited";
+        InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
         
-    //     PlaygroundOwner playgroundOwner = new PlaygroundOwner();
-    //     Playground playground = new Playground();
-    //     playground.setName("PlayGround");
-    //     playgroundOwner.addPlayground(playground);
-    //     playgroundOwner.updatePlaygroundName("PlayGround");
-    //     assertEquals("PlayGroundEdited", playground.getName());
-
-    //     simulatedInputOption = "2\r\nLocation1";
-    //     in = new ByteArrayInputStream(simulatedInputOption.getBytes());
-    //     System.setIn(in);
-    //     playgroundOwner.updatePlaygroundName(playground.getName());
-    //     assertEquals("Location1", playground.getLocation());
-
-    //     simulatedInputOption = "3\r\n20";
-    //     in = new ByteArrayInputStream(simulatedInputOption.getBytes());
-    //     System.setIn(in);
-    //     playgroundOwner.updatePlaygroundName(playground.getName());
-    //     assertEquals(20, playground.getPrice());
-
-    //     simulatedInputOption = "4\r\navailable";
-    //     in = new ByteArrayInputStream(simulatedInputOption.getBytes());
-    //     System.setIn(in);
-    //     playgroundOwner.updatePlaygroundName(playground.getName());
-    //     assertEquals("available", playground.getStatus());
-
-    //     simulatedInputOption = "5\r\n1\r\n7";
-    //     in = new ByteArrayInputStream(simulatedInputOption.getBytes());
-    //     System.setIn(in);
-    //     playgroundOwner.updatePlaygroundName(playground.getName());
-    // }     
+        PlaygroundOwner playgroundOwner = new PlaygroundOwner();
+        playgroundOwner.addPlayground(playground);
+        
+        playgroundOwner.updatePlaygroundName("PlayGround");
+        assertEquals("PlayGroundEdited", playground.getName());
+    }     
     
     @Test
     public void testDisplayRecieveMsg() {
@@ -105,14 +83,14 @@ public class PlaygroundOwnerTest {
         InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
 
-        PlaygroundOwner playgroundOwner = new PlaygroundOwner();
-
         Playground playground = new Playground();
-        playground.setName("Playground");
         playground.setPrice();
+        playground.setName("Playground");
 
+        PlaygroundOwner playgroundOwner = new PlaygroundOwner();
         eWallet wallet = new eWallet();
         wallet.setBalance(100);
+        playgroundOwner.addPlayground(playground);
         playgroundOwner.setBalance(wallet);
 
         assertEquals(60, playgroundOwner.payMoney("Playground", 3));
