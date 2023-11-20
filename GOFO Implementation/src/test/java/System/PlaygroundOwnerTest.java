@@ -45,18 +45,36 @@ public class PlaygroundOwnerTest {
             
     @Test 
     public void testUpdatePlaygroundName(){
-        String simulatedInputOption = "TestOne\n1\nTestTwo\n2\nTest\n3\n20\n4\nnot available\n5\n1\n1";
+        String simulatedInputOption = "1\nPlayGroundEdited";
 
         InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
         System.setIn(in);
         
         PlaygroundOwner playgroundOwner = new PlaygroundOwner();
         Playground playground = new Playground();
-        playground.setName("TestOne");
+        playground.setName("PlayGround");
         playgroundOwner.addPlayground(playground);
-        playgroundOwner.updatePlaygroundName("Test");
-        playgroundOwner.updatePlaygroundName("TestTwo");
-        playgroundOwner.updatePlaygroundName("TestTwo");
+        playgroundOwner.updatePlaygroundName("PlayGround");
+
+        simulatedInputOption = "2\nLocation1";
+        in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
+
+        simulatedInputOption = "3\n20";
+        in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
+
+        simulatedInputOption = "4\navailable";
+        in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
+
+        simulatedInputOption = "5\n1\n7";
+        in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        playgroundOwner.updatePlaygroundName("PlayGroundEdited");
     }     
     
    
