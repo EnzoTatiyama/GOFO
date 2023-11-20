@@ -96,7 +96,7 @@ public class PlaygroundOwnerTest {
     @Test
     public void testAddRecieveMsg() {
         PlaygroundOwner playgroundOwner = new PlaygroundOwner();
-        playgroundOwner.addRecieveMsg();
+        playgroundOwner.addRecieveMsg("Message");
     }
 
     @Test
