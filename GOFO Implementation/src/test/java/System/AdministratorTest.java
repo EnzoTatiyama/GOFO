@@ -5,8 +5,6 @@ import System.Playground;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.Scanner;
-import UI.SystemUI;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
@@ -79,5 +77,71 @@ public class AdministratorTest {
         admin.approvePlayground();
         assertEquals(2, admin.Approved.size());
         assertEquals(0, admin.Requested.size());
+    }
+    
+    @Test
+    public void testSuspendPlayground() {
+        String simulatedInputOption = "t\nyes";
+
+        InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        
+        Administrator admin = new Administrator();
+        Playground playground = new Playground();
+        playground.setName("Playground para Reserva");
+        playground.setOwner("Proprietário para Reserva");
+        admin.Approved.add(playground);
+        
+        admin.suspendPlayground(playground.getName());
+        assertEquals(0, admin.Approved.size());
+        assertEquals(1, admin.suspended.size());
+    }
+            
+    @Test
+    public void testUnSuspendPlayground() {
+        String simulatedInputOption = "t\nyes";
+
+        InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        
+        Administrator admin = new Administrator();
+        Playground playground = new Playground();
+        playground.setName("Playground para Reserva");
+        playground.setOwner("Proprietário para Reserva");
+        admin.Approved.add(playground);
+        admin.suspended.add(playground);
+        
+        admin.unSuspendPlayground();
+        assertEquals(2, admin.Approved.size());
+        assertEquals(0, admin.suspended.size());
+    }
+    
+    @Test
+    public void testDeletePlayground() {
+        Administrator admin = new Administrator();
+        Playground playground = new Playground();
+        playground.setName("Playground para Reserva");
+        playground.setOwner("Proprietário para Reserva");
+        admin.Approved.add(playground);
+        
+        admin.deletePlayground(playground.getName());
+        assertEquals(0, admin.Approved.size());
+    }
+            
+    @Test
+    public void testBkByName() {
+        String simulatedInputOption = "10\n10\n0";
+
+        InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        
+        Administrator admin = new Administrator();
+        Playground playground = new Playground();
+        playground.setName("Playground para Reserva");
+        playground.setOwner("Proprietário para Reserva");
+        admin.Approved.add(playground);
+        
+        admin.bookByName(playground.getName(), "Playground para Reserva", 20);
+
     }
 }
