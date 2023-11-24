@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Scanner;
 import UI.SystemUI;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 
 public class AdministratorTest {
 
@@ -49,5 +51,33 @@ public class AdministratorTest {
         
     }
 
+    @Test
+    public void testGetApproved() {
+        Administrator admin = new Administrator();
+        Playground playground = new Playground();
+        playground.setName("Playground para Reserva");
+        playground.setOwner("Proprietário para Reserva");
+        admin.Approved.add(playground);
+
+        admin.getApproved();
+    }
     
+    @Test
+    public void testAppPlayground() {
+        String simulatedInputOption = "yes";
+
+        InputStream in = new ByteArrayInputStream(simulatedInputOption.getBytes());
+        System.setIn(in);
+        
+        Administrator admin = new Administrator();
+        Playground playground = new Playground();
+        playground.setName("Playground para Reserva");
+        playground.setOwner("Proprietário para Reserva");
+        admin.Approved.add(playground);
+        admin.Requested.add(playground);
+        
+        admin.approvePlayground();
+        assertEquals(2, admin.Approved.size());
+        assertEquals(0, admin.Requested.size());
+    }
 }
